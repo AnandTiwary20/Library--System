@@ -230,4 +230,129 @@ img {
   width: 100%;
   text-align: center;
   margin-top: auto };
+
+  /* Search Bar */
+.search-container {
+  margin: 2rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Book Details Page */
+.book-details {
+  padding: 2rem 0;
+}
+
+.book-details-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.book-cover-large {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.book-cover-large img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.book-details h1 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.book-details h2 {
+  font-size: 1.4rem;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.book-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.book-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.borrow-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.borrow-btn:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-2px);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .book-details-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
   
+  .book-cover-large {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .book-meta {
+    flex-wrap: wrap;
+  }
+}
