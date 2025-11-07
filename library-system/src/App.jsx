@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import BookCard from './components/BookCard';
 import CategoryList from './components/CategoryList';
+import Navbar from './components/Navbar';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -48,8 +50,8 @@ function App() {
     ? books 
     : books.filter(book => book.category === selectedCategory);
 
-  return (
-    <div className="app">
+  const Home = () => (
+    <>
       <header className="header">
         <h1>Welcome to Our Library</h1>
         <p>Discover your next favorite book</p>
@@ -72,11 +74,41 @@ function App() {
           ))}
         </div>
       </main>
-      
-      <footer className="footer">
-        <p>© 2025 Library System. All rights reserved.</p>
-      </footer>
+    </>
+  );
+
+  const BrowseBooks = () => (
+    <div className="browse-page">
+      <h2>All Books</h2>
+      <div className="book-grid">
+        {books.map(book => (
+          <BookCard key={book.id} book={book} />
+        ))}
+      </div>
     </div>
+  );
+
+  const AddBook = () => (
+    <div className="add-book-page">
+      <h2>Add a New Book</h2>
+      <p>Add book form will go here</p>
+    </div>
+  );
+
+  return (
+    <Router>
+      <div className="app">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/browse" element={<BrowseBooks />} />
+          <Route path="/add-book" element={<AddBook />} />
+        </Routes>
+        <footer className="footer">
+          <p>© 2025 Library System. All rights reserved.</p>
+        </footer>
+      </div>
+    </Router>
   )
 }
 
