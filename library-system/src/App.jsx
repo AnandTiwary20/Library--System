@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectAllBooks } from './features/books/booksSlice';
 import Navbar from './components/Navbar';
 import BookCard from './components/BookCard';
@@ -10,22 +10,18 @@ import AddBookForm from './features/books/AddBookForm';
 import './App.css';
 import PageNotFound from './components/PageNotFound';
 
-function App() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchTerm, setSearchTerm] = useState('');
-  const books = useSelector(selectAllBooks);
-
+function Home({ books, selectedCategory, setSelectedCategory, searchTerm, setSearchTerm }) {
   const categories = ['All', 'Fiction', 'Non-Fiction', 'Sci-Fi', 'Biography', 'History'];
-
+  
   const filteredBooks = (selectedCategory === 'All' 
     ? books 
-    : books.filter(book => book.category === selectedCategory)
+    : books.filter(book => book?.category === selectedCategory)
   ).filter(book =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    book.author.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const Home = () => (
+    book?.title?.toLowerCase().includes(searchTerm?.toLowerCase() || '') ||
+    book?.author?.toLowerCase().includes(searchTerm?.toLowerCase() || '')
+  ) || [];
+  
+  return (
     <div className="app">
       <header className="header">
         <div className="header-content">
@@ -74,8 +70,15 @@ function App() {
       </main>
     </div>
   );
+}
 
-  const BrowseBooks = () => (
+function BrowseBooks({ books, searchTerm, setSearchTerm }) {
+  const filteredBooks = books.filter(book =>
+    book?.title?.toLowerCase().includes(searchTerm?.toLowerCase() || '') ||
+    book?.author?.toLowerCase().includes(searchTerm?.toLowerCase() || '')
+  ) || [];
+  
+  return (
     <div className="browse-books">
       <div className="search-container">
         <input
@@ -93,19 +96,56 @@ function App() {
       </div>
     </div>
   );
+}
+
+function App() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
+  const books = useSelector(selectAllBooks) || [];
+
 
   return (
     <Router>
       <div className="app">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/browse" element={<BrowseBooks />} />
-          <Route path="/book/:id" element={<BookDetails books={books} />} />
-          <Route path="/add-book" element={<AddBookForm />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-        
+        <main>
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <Home 
+                  books={books}
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                />
+              } 
+            />
+            <Route 
+              path="/browse" 
+              element={
+                <BrowseBooks 
+                  books={books}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                />
+              } 
+            />
+            <Route 
+              path="/book/:id" 
+              element={<BookDetails books={books} />} 
+            />
+            <Route 
+              path="/add-book" 
+              element={<AddBookForm />} 
+            />
+            <Route 
+              path="*" 
+              element={<PageNotFound />} 
+            />
+          </Routes>
+        </main>
         <footer className="footer">
           <p>&copy; 2025 Library System. All rights reserved.</p>
         </footer>
