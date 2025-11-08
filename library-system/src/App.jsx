@@ -8,6 +8,7 @@ import CategoryList from './components/CategoryList';
 import BookDetails from './components/BookDetails';
 import AddBookForm from './features/books/AddBookForm';
 import './App.css';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
