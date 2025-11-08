@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar">
-      <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          Library System
+      <Link to="/" className="logo">
+        Library System
+      </Link>
+      
+      <button 
+        className="menu-toggle" 
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+      
+      <div className={`nav-links ${isOpen ? 'active' : ''}`}>
+        <Link to="/" className="nav-link">
+          Home
         </Link>
-        <ul className="nav-menu">
-          <li className="nav-item">
-            <Link to="/" className="nav-links">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/browse" className="nav-links">
-              Browse Books
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/add-book" className="nav-links">
-              Add Book
-            </Link>
-          </li>
-        </ul>
+        <Link to="/browse" className="nav-link">
+          Browse Books
+        </Link>
+        <Link to="/add-book" className="nav-link">
+          Add Book
+        </Link>
       </div>
     </nav>
   );
