@@ -94,7 +94,7 @@ body {
 
 
 
-/* ===== Header Section ===== */
+
 .header {
   background: linear-gradient(135deg, var(--main-blue), var(--dark-blue));
   color: #fff;
@@ -251,17 +251,16 @@ body {
 
 /* ===== Book Details ===== */
 .book-details-page {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
 
 .book-details-container {
   background: white;
-  padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  position: relative;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .back-button {
@@ -286,9 +285,8 @@ body {
 }
 
 .book-content {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 3rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .book-cover-large {
@@ -306,11 +304,6 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
-}
-
-.book-cover-large:hover img {
-  transform: scale(1.02);
 }
 
 .book-info {
@@ -322,24 +315,9 @@ body {
 }
 
 .book-title {
-  font-size: 2.2rem;
-  line-height: 1.2;
+  font-size: 1.8rem;
   margin: 0 0 0.5rem;
-  color: #1e293b;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.book-category {
-  display: inline-block;
-  font-size: 0.8rem;
-  color: var(--main-blue);
-  background: rgba(67, 97, 238, 0.1);
-  padding: 0.35rem 1rem;
-  border-radius: 20px;
-  font-weight: 500;
-  text-transform: capitalize;
-  letter-spacing: 0.3px;
+  color: var(--text-dark);
 }
 
 .book-author {
@@ -408,23 +386,6 @@ body {
   gap: 0.5rem;
   color: #64748b;
   font-size: 0.95rem;
-}
-
-.book-pages,
-.book-published {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.book-pages::before {
-  content: '📖';
-  font-size: 1.1em;
-}
-
-.book-published::before {
-  content: '📅';
-  font-size: 1.1em;
 }
 
 .book-description {
