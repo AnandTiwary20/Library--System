@@ -5,9 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { addBook } from './booksSlice';
 
 const AddBookForm = () => {
+  // Redux dispatch function for adding books
   const dispatch = useDispatch();
+  // Navigation function for redirecting after form submission
   const navigate = useNavigate();
   
+  // Initialize form with react-hook-form
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       title: '',
@@ -32,6 +35,7 @@ const AddBookForm = () => {
     navigate('/browse');
   };
 
+  // Available book categories for the dropdown
   const categories = [
     'Fiction', 'Non-Fiction', 'Science Fiction', 'Fantasy', 'Mystery', 
     'Romance', 'Thriller', 'Biography', 'History', 'Self-Help'

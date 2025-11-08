@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const BookDetails = ({ books }) => {
+  // Extract book ID from URL parameters
   const { id } = useParams();
   const navigate = useNavigate();
   const book = books.find(b => b.id === parseInt(id));
@@ -49,6 +50,7 @@ const BookDetails = ({ books }) => {
     );
   };
 
+  // Handle case when book is not found
   if (!book) {
     return (
       <div className="book-not-found">
@@ -57,6 +59,7 @@ const BookDetails = ({ books }) => {
         <button 
           onClick={() => navigate('/browse')} 
           className="back-button"
+          aria-label="Browse our collection"
         >
           ← Browse Our Collection
         </button>

@@ -131,6 +131,7 @@ export const booksSlice = createSlice({
         id: nanoid(),
         ...action.payload
       };
+      // Add the new book to the beginning of the books array
       state.books.unshift(newBook); 
     }
   },

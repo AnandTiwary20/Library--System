@@ -2,7 +2,8 @@ import React from 'react';
 
 const CategoryList = ({ categories, selectedCategory, onSelectCategory }) => {
   return (
-    <div className="category-list">
+    // Container for the category filter buttons
+    <div className="category-list" role="tablist" aria-label="Book categories">
       {categories.map((category) => (
         <button
           key={category}

@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 const BookCard = ({ book }) => {
   const navigate = useNavigate();
   
+  /**
+   * Handles click on the book card to navigate to the book's detailed view
+   */
   const handleCardClick = () => {
     navigate(`/book/${book.id}`);
   };
 
-  // Format the category to be more readable
+
   const formatCategory = (category) => {
     return category.replace('-', ' ');
   };
@@ -20,7 +23,7 @@ const BookCard = ({ book }) => {
           alt={`Cover of ${book.title}`} 
           loading="lazy"
           onError={(e) => {
-            e.target.onerror = null; // Prevent infinite loop
+            e.target.onerror = null; 
             e.target.src = 'https://via.placeholder.com/150x225?text=No+Cover';
           }}
         />

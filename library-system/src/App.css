@@ -1,14 +1,23 @@
 
+
 :root {
-  --main-blue: #4361ee;
-  --dark-blue: #3f37c9;
-  --light-blue: #4cc9f0;
-  --text-dark: #2b2d42;
-  --text-gray: #6c757d;
-  --bg-light: #f7f9fc;
-  --white: #ffffff;
-  --shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  /* Brand colors */
+  --blue: #4361ee;       
+  --blue-dark: #3f37c9;  
+  --blue-light: #4cc9f0; 
+
+  /* Text colors */
+  --text-main: #2b2d42;  
+  --text-muted: #6c757d; 
+
+  /* Background colors */
+  --background: #f7f9fc; 
+  --white: #ffffff;      
+
+  
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.08); 
 }
+
 
 * {
   margin: 0;
@@ -18,8 +27,9 @@
 
 body {
   font-family: "Inter", Arial, sans-serif;
-  background: var(--bg-light);
-  color: var(--text-dark);
+  background: #f7f9fc;
+color: #2b2d42;
+
   line-height: 1.6;
   padding-top: 70px;
 }
@@ -31,7 +41,8 @@ body {
   left: 0;
   right: 0;
   height: 70px;
-  background: var(--white);
+  background: #fff;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,12 +53,12 @@ body {
 
 .logo {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--main-blue);
+  font-weight: bold;
+  color:  #4361ee;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .nav-links {
@@ -61,7 +72,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: var(--text-dark);
+  color: #2b2d42;
   font-weight: 500;
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -73,13 +84,13 @@ body {
 }
 
 .nav-link:hover {
-  color: var(--main-blue);
+ color: #4361ee;
   background: rgba(67, 97, 238, 0.1);
 }
 
 .nav-link.active {
-  color: var(--main-blue);
-  font-weight: 600;
+ color: #4361ee;
+ font-weight: 600;
 }
 
 .menu-toggle {
@@ -89,15 +100,16 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
-  color: var(--text-dark);
+color: #2b2d42;
+ 
 }
 
 
 
 
 .header {
-  background: linear-gradient(135deg, var(--main-blue), var(--dark-blue));
-  color: #fff;
+  background: linear-gradient(135deg, #4361ee, #3f37c9);
+color: whitesmoke;
   padding: 3rem 1rem;
   text-align: center;
   margin-bottom: 2rem;
@@ -139,7 +151,7 @@ body {
 }
 
 .search-input:focus {
-  border-color: var(--main-blue);
+  border-color:  #4361ee;
   box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
 }
 
@@ -179,7 +191,7 @@ body {
 .section-title {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  border-left: 4px solid var(--main-blue);
+  border-left: 4px solid  #4361ee;
   padding-left: 0.5rem;
 }
 
@@ -232,12 +244,12 @@ body {
 }
 
 .book-card:hover .book-title {
-  color: var(--main-blue);
+  color:  #4361ee;
 }
 
 .book-author {
   font-size: 0.9rem;
-  color: var(--text-gray);
+ color: #6c757d;
   margin-bottom: 0.5rem;
 }
 
@@ -249,11 +261,11 @@ body {
   padding: 0.6rem 1rem;
   border-radius: 999px;
 }
-.category-list{
+.category-list {
   display: flex;
-  padding: 20px;
-}
+  padding: 10px;
 
+};
 
 .book-details-page {
   max-width: 1000px;
@@ -275,7 +287,7 @@ body {
   background: none;
   border: none;
   margin-top:80px;
-  color: var(--main-blue);
+  color:  #4361ee;
   cursor: pointer;
   margin-bottom: 1.5rem;
   font-size: 1rem;
@@ -300,11 +312,12 @@ body {
 
 .book-cover-large {
   width: 100%;
+  max-width: 350px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  aspect-ratio: 2/3;
+  aspect-ratio: 3/4;
   position: relative;
 }
 
@@ -326,7 +339,8 @@ body {
 .book-title {
   font-size: 1.8rem;
   margin: 0 0 0.5rem;
-  color: var(--text-dark);
+  color: #2b2d42;
+
 }
 
 .book-author {
@@ -428,7 +442,7 @@ body {
 }
 
 .borrow-button {
-  background: var(--main-blue);
+  background:  #4361ee;
   color: white;
 }
 
@@ -530,7 +544,8 @@ error-message {
   padding: 1.5rem;
   margin-top: 3rem;
   border-top: 1px solid #e0e0e0;
-  color: var(--text-gray);
+ color: #6c757d;
+
   font-size: 0.9rem;
 }
 
@@ -549,7 +564,8 @@ error-message {
     gap: 1rem;
     width: 200px;
     padding: 1rem;
-    box-shadow: var(--shadow);
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
     display: none;
   }
 

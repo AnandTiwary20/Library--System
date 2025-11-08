@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  // State to manage mobile menu open/close
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Don't show the Add Book button on the Add Book page
+ 
   const showAddButton = location.pathname !== '/add-book';
 
   return (
