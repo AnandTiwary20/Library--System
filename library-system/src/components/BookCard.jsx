@@ -11,14 +11,10 @@ const BookCard = ({ book }) => {
       <div className="book-cover">
         <img src={book.coverImage} alt={book.title} />
       </div>
-      <div className="book-info">
-        <h3>{book.title}</h3>
-        <p className="author">By {book.author}</p>
-        <p className="category">{book.category}</p>
-        <p className="description">{book.description}</p>
-        <button onClick={handleViewDetails} className="view-details">
-          View Details
-        </button>
+      <div className="book-details">
+        <h3 className="book-title">{book.title}</h3>
+        <p className="book-author">By {book.author}</p>
+        <span className="book-category">{book.category}</span>
       </div>
     </div>
   );
