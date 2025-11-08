@@ -21,10 +21,17 @@ function App() {
   const categories = ['All', 'Fiction', 'Non-Fiction', 'Sci-Fi', 'Biography', 'History'];
 
   const filteredBooks = (selectedCategory === 'All' ? books : books.filter(book => book.category === selectedCategory))
-    .filter(book =>
-      book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      book.author.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    .filter(book => {
+      if (!searchTerm.trim()) return true;
+      
+      const searchTerms = searchTerm.toLowerCase().split(' ').filter(term => term.length > 0);
+      
+      return searchTerms.some(term => 
+        book.title.toLowerCase().includes(term) ||
+        book.author.toLowerCase().includes(term) ||
+        book.category.toLowerCase().includes(term)
+      );
+    });
 
   const Home = () => (
     <div className="app">
@@ -33,13 +40,26 @@ function App() {
           <h1>Welcome to Our Library</h1>
           <p>Discover your next favorite book from our collection</p>
           <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search by title or author..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
+            <div className="search-box">
+              <input
+                type="text"
+                placeholder="Search by title, author, or category..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+                aria-label="Search books"
+              />
+              {searchTerm && (
+                <button 
+                  className="clear-search"
+                  onClick={() => setSearchTerm('')}
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+            <p className="search-hint">Try searching for multiple terms (e.g., "fiction orwell")</p>
           </div>
         </div>
       </header>
