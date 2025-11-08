@@ -20,7 +20,7 @@ const initialState = {
       author: 'Harper Lee', 
       category: 'Fiction', 
       description: 'A powerful story of racial injustice and the loss of innocence in the American South.',
-      coverImage: 'https://m.media-amazon.com/images/I/71FxgtFKcUL._AC_UF1000,1000_QL80_.jpg',
+      coverImage: 'https://pictures.abebooks.com/inventory/32200153366.jpg',
       rating: 4.8,
       pages: 281,
       publishedDate: '1960-07-11'
@@ -67,7 +67,7 @@ const initialState = {
       author: 'Alex Michaelides', 
       category: 'Thriller', 
       description: 'A psychological thriller about a woman who shoots her husband and then stops speaking.',
-      coverImage: 'https://m.media-amazon.com/images/I/71X3OAAV8RL._AC_UF1000,1000_QL80_.jpg',
+      coverImage: 'https://img.buzzfeed.com/buzzfeed-static/static/2020-06/26/21/asset/0a0f2c728d19/sub-buzz-431-1593205814-19.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto',
       rating: 4.5,
       pages: 325,
       publishedDate: '2019-02-05'
@@ -83,7 +83,41 @@ const initialState = {
       rating: 4.8,
       pages: 310,
       publishedDate: '1937-09-21'
-    }
+    },
+    {
+  id: 8,
+  title: 'Project Hail Mary',
+  author: 'Andy Weir',
+  category: 'Sci-Fi',
+  description: 'A lone astronaut must save the earth from disaster in this incredible new science-based thriller from the #1 New York Times bestselling author of The Martian.',
+  coverImage: 'https://images1.penguinrandomhouse.com/cover/9798217299461',
+  rating: 4.8,
+  pages: 496,
+  publishedDate: '2021-05-04'
+},
+{
+  id: 9,
+  title: 'The Song of Achilles',
+  author: 'Madeline Miller',
+  category: 'Historical Fiction',
+  description: 'A thrilling, profoundly moving, and utterly unique retelling of the legend of Achilles and the Trojan War from the bestselling author of Circe.',
+  coverImage: 'https://champaca.in/cdn/shop/products/51PH05QauDL_540x.jpg?v=1639727107',
+  rating: 4.6,
+  pages: 416,
+  publishedDate: '2012-08-28'
+},
+{
+  id: 10,
+  title: 'The Midnight Library',
+  author: 'Matt Haig',
+  category: 'Fiction',
+  description: 'Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived.',
+  coverImage: 'https://media.npr.org/assets/img/2020/09/30/815-u8gacyl_custom-6b18da73bda60986b0448abff5dc75ee9cb9837f.jpg?s=400&c=85&f=webp',
+  rating: 4.2,
+  pages: 304,
+  publishedDate: '2020-08-13'
+},
+
 
   ]
 };

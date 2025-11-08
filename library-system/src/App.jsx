@@ -147,7 +147,7 @@ function App() {
           </Routes>
         </main>
         <footer className="footer">
-          <p>&copy; 2025 Library System. All rights reserved.</p>
+          <p>&copy; Library System Made By Anand.</p>
         </footer>
       </div>
     </Router>
