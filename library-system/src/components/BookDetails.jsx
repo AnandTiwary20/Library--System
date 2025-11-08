@@ -14,7 +14,7 @@ const BookDetails = ({ books }) => {
 
   const getReadingTime = (pages) => {
     if (!pages) return '';
-    const minutes = Math.ceil(pages * 2); // Average 2 minutes per page
+    const minutes = Math.ceil(pages * 2); 
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
     
@@ -126,10 +126,7 @@ const BookDetails = ({ books }) => {
             </div>
             
             <div className="book-actions">
-              <button className="borrow-button">
-                Borrow Now
-                <span className="button-hint">Available at your local branch</span>
-              </button>
+
               <button className="wishlist-button">
                 Add to My Reading List
               </button>
@@ -140,9 +137,6 @@ const BookDetails = ({ books }) => {
                 <span className="status-dot available"></span>
                 <span>Available now at 3 locations</span>
               </div>
-              <button className="find-copy-button">
-                Find a copy near you
-              </button>
             </div>
           </div>
         </div>
