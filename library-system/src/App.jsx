@@ -67,7 +67,7 @@ function App() {
             </div>
           ) : (
             <div className="no-books">
-              <p>No books found matching your search. Try a different term or category.</p>
+              <p>No books found matching your search. Try a different category.</p>
             </div>
           )}
         </div>
@@ -103,6 +103,7 @@ function App() {
           <Route path="/browse" element={<BrowseBooks />} />
           <Route path="/book/:id" element={<BookDetails books={books} />} />
           <Route path="/add-book" element={<AddBookForm />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         
         <footer className="footer">
