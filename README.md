@@ -2,7 +2,7 @@
 
 A simple and modern Library Management Web App built using React, JavaScript, HTML, and CSS — no backend framework or database, just pure frontend logic and components.
 The app lets users browse, search, and view books by category, and manage book details interactively.
------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 
 🚀 Features
 
